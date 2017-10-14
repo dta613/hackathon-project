@@ -2,6 +2,9 @@
 
 var express = require('express');
 var app = express();
+var browserify = require('browserify');
+var React = require('react');
+var jsx = require('node-jsx');
 
 app.set('port', (process.env.PORT || 5000));
 

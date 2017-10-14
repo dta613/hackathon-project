@@ -5,6 +5,7 @@ var app = express();
 var browserify = require('browserify');
 var React = require('react');
 var jsx = require('node-jsx');
+require('dotenv').config();
 
 app.set('port', (process.env.PORT || 5000));
 

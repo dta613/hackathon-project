@@ -2,18 +2,21 @@
 
 //TWILIO
 //
-
+require('dotenv').config();
 var twilio = require('twilio');
+
 
 // Create a new REST API client to make authenticated requests against the
 // twilio back end
-var client = new twilio(accountSid, authToken);
+
+var client = new twilio('AC624824e1cc11d85555a22c3eb448cfd3','4a89b86619b9186a7cb69126ca4482cd');
+
 
 // Pass in parameters to the REST API using an object literal notation. The
 // REST client will handle authentication and response serialzation for you.
 client.messages.create({
-    to:'+7187647162',
-    from:'+2014290593 ',
+    to:'+9179637036',
+    from:'+2014290593',
     body:'ahoy hoy! Testing Twilio and node.js'
 }, function(error, message) {
     // The HTTP request to Twilio will run asynchronously. This callback
@@ -32,6 +35,8 @@ client.messages.create({
     } else {
         console.log('Oops! There was an error.');
     }
+  })
+
 
 // //Initialize a REST client in a single line:
 // var client = require('twilio')('TWILIO_ACCOUNT_SID', 'TWILIO_AUTH_TOKEN');
@@ -51,7 +56,7 @@ client.messages.create({
 //         console.log('Oops! There was an error.');
 //     }
 // });
-//// Require the twilio and HTTP modules
+// // Require the twilio and HTTP modules
 // var twilio = require('twilio'),
 //     http = require('http');
 //
@@ -76,4 +81,3 @@ client.messages.create({
 // }).listen(1337);
 //
 // console.log('Visit http://localhost:1337/ in your browser to see your TwiML document!');
-// });

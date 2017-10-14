@@ -1,6 +1,7 @@
 // Test out APIs here
 
 //TWILIO
+//
 
 var twilio = require('twilio');
 
@@ -11,8 +12,8 @@ var client = new twilio(accountSid, authToken);
 // Pass in parameters to the REST API using an object literal notation. The
 // REST client will handle authentication and response serialzation for you.
 client.messages.create({
-    to:'+16512223344',
-    from:'TWILIO_NUMBER',
+    to:'+7187647162',
+    from:'+2014290593 ',
     body:'ahoy hoy! Testing Twilio and node.js'
 }, function(error, message) {
     // The HTTP request to Twilio will run asynchronously. This callback
@@ -31,4 +32,48 @@ client.messages.create({
     } else {
         console.log('Oops! There was an error.');
     }
-});
+
+// //Initialize a REST client in a single line:
+// var client = require('twilio')('TWILIO_ACCOUNT_SID', 'TWILIO_AUTH_TOKEN');
+//
+// // Use this convenient shorthand to send an SMS:
+// client.sendSms({
+//     to:'YOUR_PHONE',
+//     from:'TWILIO_NUMBER',
+//     body:'ahoy hoy! Testing Twilio and node.js'
+// }, function(error, message) {
+//     if (!error) {
+//         console.log('Success! The SID for this SMS message is:');
+//         console.log(message.sid);
+//         console.log('Message sent on:');
+//         console.log(message.dateCreated);
+//     } else {
+//         console.log('Oops! There was an error.');
+//     }
+// });
+//// Require the twilio and HTTP modules
+// var twilio = require('twilio'),
+//     http = require('http');
+//
+// // Create an HTTP server, listening on port 1337, that
+// // will respond with a TwiML XML document
+// http.createServer(function (req, res) {
+//     // Create a TwiML response
+//     var resp = new twilio.twiml.VoiceResponse();
+//
+//     // The TwiML response object will have functions on it that correspond
+//     // to TwiML "verbs" and "nouns". This example uses the "Say" verb.
+//     // Passing in a string argument sets the content of the XML tag.
+//     // Passing in an object literal sets attributes on the XML tag.
+//     resp.say({voice:'woman'}, 'ahoy hoy! Testing Twilio and node.js');
+//
+//     //Render the TwiML document using "toString"
+//     res.writeHead(200, {
+//         'Content-Type':'text/xml'
+//     });
+//     res.end(resp.toString());
+//
+// }).listen(1337);
+//
+// console.log('Visit http://localhost:1337/ in your browser to see your TwiML document!');
+// });
